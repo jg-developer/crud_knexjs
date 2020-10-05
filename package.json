@@ -1,0 +1,19 @@
+{
+  "name": "crud_knexjs",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "https://github.com/jg-developer/crud_knexjs.git",
+  "author": "jg-developer <jonathan.gomes213@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "pg": "^8.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
