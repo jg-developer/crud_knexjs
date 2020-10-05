@@ -10,6 +10,12 @@ module.exports = {
     try {
       const { username } = req.body;
 
+      if (!username) {
+        const error = new Error("Send username");
+        error.status = 500;
+        next(error);
+      }
+
       await knex("users").insert({ username });
 
       return res.status(201).send();
@@ -22,6 +28,18 @@ module.exports = {
       const { username } = req.body;
       const { id } = req.params;
 
+      if (!username) {
+        const error = new Error("Send username");
+        error.status = 500;
+        next(error);
+      }
+
+      if (!id) {
+        const error = new Error("Send id");
+        error.status = 500;
+        next(error);
+      }
+
       await knex("users").update({ username }).where({ id });
 
       return res.send();
@@ -32,6 +50,12 @@ module.exports = {
   async delete(req, res, next) {
     try {
       const { id } = req.params;
+
+      if (!id) {
+        const error = new Error("Send id");
+        error.status = 500;
+        next(error);
+      }
 
       await knex("users").where({ id }).del();
 
